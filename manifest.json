@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "WWW Filter",
+  "version": "1.0",
+  "description": "A child filter for every webpage",
+  "icons": {
+    "128": "img/icon.png"
+  },
+  "permissions": ["activeTab", "storage", "tabs", "http://localhost/*"],
+  "browser_action": {
+    "default_icon": "img/icon.png",
+    "default_title": "WWW Filter",
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "scripts": ["eventPage.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://tatiaris.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
